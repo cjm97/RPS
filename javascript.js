@@ -80,12 +80,8 @@ resetButton.textContent = 'Press me to restart the game!';
 // resetButton = document.querySelector('.resetButton');
 
 function checkScore() {
-    if (playerWins === 5 && computerWins < 5) {
+    if (playerWins >= 5 || computerWins >= 5) {
         winner.textContent = `The player beat the computer to 5 wins! Final score is ${playerWins} to ${computerWins}`;
-        winner.appendChild(resetButton);
-    }
-    else if (computerWins === 5 && playerWins < 5) {
-        winner.textContent = `The computer beat the player to 5 wins! Final score is ${computerWins} to ${playerWins}`;
         winner.appendChild(resetButton);
     }
     resetButton.onclick = () => { resetGame() };
@@ -119,7 +115,7 @@ scissorsButton.onclick = () => {
 
 
 function resetGame() {
-    if (playerWins === 5 || computerWins === 5) {
+    if (playerWins >= 5 || computerWins >= 5) {
         results.textContent = " ";
         score.textContent = " ";
         winner.textContent = " ";
